@@ -20,3 +20,12 @@
 @import "../blocks/element/__action/_like/element__action_like.css";
 @import "../blocks/footer/footer.css";
 @import "../blocks/footer/__copyright/footer__copyright.css";
+@import "../blocks/overlay/overlay.css";
+@import "../blocks/edit-form/edit-form.css";
+@import "../blocks/edit-form/__heading/edit-form__heading.css";
+@import "../blocks/edit-form/__input/edit-form__input.css";
+@import "../blocks/edit-form/__input/_type/edit-form__input\ edit-form__input_type_name.css";
+@import "../blocks/edit-form/__input/_type/edit-form__input\ edit-form__input_type_description.css";
+@import "../blocks/save-button/save-button.css";
+@import "../blocks/save-button/__text/save-button__text.css";
+@import "../blocks/save-button/__close-icon/save-button__close-icon.css";
