@@ -1,5 +1,6 @@
 @import "../vendor/normalize.css";
 @import "../vendor/fonts/inter/inter.css";
+@import "../blocks/body/body.css";
 @import "../blocks/page/page.css";
 @import "../blocks/header/header.css";
 @import "../blocks/header/__logo/header__logo.css";
@@ -17,3 +18,5 @@
 @import "../blocks/element/__image/element__image.css";
 @import "../blocks/element/__name/element__name.css";
 @import "../blocks/element/__action/_like/element__action_like.css";
+@import "../blocks/footer/footer.css";
+@import "../blocks/footer/__copyright/footer__copyright.css";
