@@ -10,4 +10,4 @@
 * Flex
 * javascript
 
-[Посмотреть страницу](https://tinypng.com/)
+[Посмотреть страницу](https://justpasha.github.io/mesto/index.html)
