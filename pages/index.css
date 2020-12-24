@@ -17,7 +17,7 @@
 @import "../blocks/element/element.css";
 @import "../blocks/element/__image/element__image.css";
 @import "../blocks/element/__name/element__name.css";
-@import "../blocks/element/__action/_like/element__action_like.css";
+@import "../blocks/element/_action/element_action_like.css";
 @import "../blocks/footer/footer.css";
 @import "../blocks/footer/__copyright/footer__copyright.css";
 @import "../blocks/popup/popup.css";

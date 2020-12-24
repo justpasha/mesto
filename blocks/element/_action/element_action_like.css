@@ -1,4 +1,4 @@
-.element__action_like {
+.element_action_like {
   width: 20px;
   height: 18px;
   position: absolute;
@@ -6,12 +6,12 @@
   bottom: 32px;
 }
 
-.element__action_like:hover {
+.element_action_like:hover {
   opacity: 0.5;
   cursor: pointer;
 }
 
-.element__action_like:active {
+.element_action_like:active {
   background-image: url('../../../../images/action-like-active.svg');
   opacity: 1;
 }
