@@ -7,6 +7,9 @@
   align-items: center;
   border-radius: 2px;
   margin-top: 47px;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
 }
 
 .save-button:hover {
@@ -18,5 +21,7 @@
   .save-button {
     height: 46px;
     margin-top: 44px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }

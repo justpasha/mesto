@@ -21,7 +21,7 @@
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__description">Исследователь океана</p>
           <div class="edit-button">
-            <img src="./images/edit-button-img.svg" class="edit-button__image">
+            <img src="./images/edit-button-img.svg" alt="редактировать" class="edit-button__image">
           </div>
         </div>
         <div class="add-button">
@@ -68,18 +68,17 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <section class="overlay">
-      <div class="edit-form">
-        <h2 class="edit-form__heading">Редактировать профиль</h2>
-        <input type="text" class="edit-form__input edit-form__input_type_name">
-        <input type="text" class="edit-form__input edit-form__input_type_description">
-        <div class="save-button">
-          <p class="save-button__text">Сохранить</p>
-        </div>
-        <img src="./images/close-icon.svg" alt="закрыть" class="save-button__close-icon">
-      </div>
+    <section class="popup">
+      <form class="popup__container">
+        <h2 class="popup__heading">Редактировать профиль</h2>
+        <input type="text" class="popup__input popup__input_type_name" value="Жак-Ив Кусто">
+        <input type="text" class="popup__input popup__input_type_about" value="Исследователь океана">
+        <button type="submit" class="save-button">Сохранить</button>>
+        <img src="./images/close-icon.svg" alt="закрыть" class="popup__close-icon">
+      </form>>
     </section>
 
   </div>
+  <script src="./scripts/script.js"></script>
 </body>
 </html>
