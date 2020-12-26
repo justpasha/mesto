@@ -1,5 +1,4 @@
 .profile__edit-container {
-  display: flex;
   padding-bottom: 16px;
   display: grid;
   grid-template-columns: repeat(2, minmax(min-content, max-content));
