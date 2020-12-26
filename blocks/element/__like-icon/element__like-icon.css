@@ -1,17 +1,5 @@
 .element__like-icon {
   width: 20px;
   height: 18px;
-  position: absolute;
-  right: 22px;
-  bottom: 32px;
 }
 
-.element__like-icon:hover {
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.element__like-icon:active {
-  background-image: url('../../../../images/action-like-active.svg');
-  opacity: 1;
-}

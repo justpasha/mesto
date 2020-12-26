@@ -1,5 +1,5 @@
 .element__name {
-  margin: 20px 0 0 21px;
+  margin: 0;
   color: black;
   font-weight: 900;
   font-size: 24px;
@@ -7,5 +7,5 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 200px;
+  max-width: 195px;
 }

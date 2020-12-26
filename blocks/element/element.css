@@ -1,7 +1,6 @@
 .element {
   width: 282px;
-  height: 362px;
   background-color: white;
   border-radius: 10px;
-  position: relative;
+  padding-bottom: 31px;
 }

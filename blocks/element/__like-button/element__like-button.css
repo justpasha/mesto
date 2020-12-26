@@ -1,0 +1,24 @@
+.element__like-button {
+  width: 20px;
+  height: 18px;
+  border: none;
+  background-color: white;
+  padding: 0;
+  transition: opacity 0.2s;
+  margin: 6px 0 0 auto;
+}
+
+.element__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.element__like-button:active {
+  background-image: url('../../../../images/action-like-active.svg');
+  opacity: 1;
+  border: none;
+}
+
+.element__like-button:focus {
+  outline: none;
+}
