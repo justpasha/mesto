@@ -10,10 +10,10 @@
 @import "../blocks/profile/__edit-container/profile__edit-container.css";
 @import "../blocks/profile/__name/profile__name.css";
 @import "../blocks/profile/__edit-button/profile__edit-button.css";
-@import "../blocks/profile/__edit-button/__edit-button-image/profile__edit-button-image.css";
+@import "../blocks/profile/__edit-button-image/profile__edit-button-image.css";
 @import "../blocks/profile/__description/profile__description.css";
 @import "../blocks/profile/__add-button/profile__add-button.css";
-@import "../blocks/profile/__add-button/__add-button-image/profile__add-button-image.css";
+@import "../blocks/profile/__add-button-image/profile__add-button-image.css";
 @import "../blocks/elements/elements.css";
 @import "../blocks/element/element.css";
 @import "../blocks/element/__image/element__image.css";

@@ -7,19 +7,19 @@ let profileName = document.querySelector('.profile__name')
 let profileAbout = document.querySelector('.profile__description')
 let form = popup.querySelector('.popup__container')
 
-function changeEditForm () {
-  profileName.textContent = nameInput.value
-  profileAbout.textContent = jobInput.value
+function openEditForm () {
+  nameInput.value = profileName.textContent
+  jobInput.value = profileAbout.textContent
   popup.classList.toggle('popup_opened')
 }
 function closeEditForm () {
   popup.classList.toggle('popup_opened')
-  nameInput.value = profileName.textContent
-  jobInput.value = profileAbout.textContent
 }
 function handleFormSubmit (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-    changeEditForm()
+    profileName.textContent = nameInput.value
+    profileAbout.textContent = jobInput.value
+    closeEditForm()
 }
 
 popup.addEventListener('click', (event) => {
@@ -27,7 +27,7 @@ popup.addEventListener('click', (event) => {
     closeEditForm();
   }
 });
-editButton.addEventListener('click',changeEditForm)
+editButton.addEventListener('click',openEditForm)
 closeButton.addEventListener('click',closeEditForm)
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
