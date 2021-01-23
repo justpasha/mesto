@@ -41,8 +41,8 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
-      <form class="popup__container" name="edit-form">
+    <section class="popup edit-profile-form">
+      <form class="popup__container edit-profile-form__container" name="edit-form">
         <h2 class="popup__heading">Редактировать профиль</h2>
         <input type="text" class="popup__input popup__input_type_name" name="input-name">
         <input type="text" class="popup__input popup__input_type_about" name="input-about">
@@ -53,28 +53,39 @@
       </form>
     </section>
 
-    <section class="popup">
-      <form class="popup__container" name="edit-form">
-        <h2 class="popup__heading">Редактировать профиль</h2>
-        <input type="text" class="popup__input popup__input_type_name" name="input-name">
-        <input type="text" class="popup__input popup__input_type_about" name="input-about">
+    <section class="popup add-card-form">
+      <form class="popup__container add-card-form__container" name="add-form">
+        <h2 class="popup__heading">Новое место</h2>
+        <input type="text" class="popup__input popup__input_type_card-name" name="card-name" placeholder="Название">
+        <input type="text" class="popup__input popup__input_type_card-link" name="card-link" placeholder="Ссылка на картинку">
         <button type="submit" class="popup__save-button">Сохранить</button>
         <button class="popup__close-button" type="button">
           <img src="./images/close-icon.svg" alt="закрыть" class="popup__close-icon">
         </button>
       </form>
+    </section>
+
+    <section class="popup popup-image popup_opened">
+      <div class="popup-image__container">
+        <img src="" alt="" class="popup-image__image">
+        <h2 class="popup-image__name"></h2>
+        <button class="popup__close-button" type="button">
+        <img src="./images/close-icon.svg" alt="закрыть" class="popup__close-icon">
+      </button>
+      </div>
     </section>
 
   </div>
 
   <template class="card-template">
     <article class="element">
+      <button class="element__delete-button">
+        <img src="./images/delete-icon.svg" alt="удалить" class="element__delete-icon">
+      </button>
       <img src="" alt="" class="element__image">
       <div class="element__name-container">
         <h2 class="element__name"></h2>
-        <button class="element__like-button" type="button">
-          <img alt="нравится" src="./images/action-like.svg" class="element__like-icon">
-        </button>
+        <button class="element__like-button" type="button"></button>
       </div>
     </article>
   </template>

@@ -26,29 +26,59 @@ const initialCards = [
 ];
 
 const editButton = document.querySelector('.profile__edit-button');
-const popup = document.querySelector('.popup');
-const closeButton=document.querySelector('.popup__close-button');
-const nameInput = popup.querySelector('.popup__input_type_name');
-const jobInput = popup.querySelector('.popup__input_type_about');
+const addButton = document.querySelector('.profile__add-button');
+const closeButton = document.querySelector('.popup__close-button');
+const popupProfileEdit = document.querySelector('.edit-profile-form');
+const popupAddCard = document.querySelector('.add-card-form');
+const nameInput = popupProfileEdit.querySelector('.popup__input_type_name');
+const jobInput = popupProfileEdit.querySelector('.popup__input_type_about');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__description');
-const form = popup.querySelector('.popup__container');
+const editProfileForm = popupProfileEdit.querySelector('.edit-profile-form__container');
+const addCardForm = popupAddCard.querySelector('.add-card-form__container');
 const cards = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.card-template').content;
 
 function openEditForm () {
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
-  popup.classList.toggle('popup_opened');
+  popupProfileEdit.classList.toggle('popup_opened');
 }
 function closeEditForm () {
-  popup.classList.toggle('popup_opened');
+  popupProfileEdit.classList.toggle('popup_opened');
 }
-function handleFormSubmit (evt) {
+
+function toggleForm() {
+  popupAddCard.classList.toggle('popup_opened');
+}
+
+function handleDelete(evt) {
+  evt.target.closest('.element').remove();
+}
+
+function cardLike(evt) {
+  evt.target.classList.toggle('element__like-button_active');
+}
+
+function handleEditFormSubmit (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
     closeEditForm();
+}
+
+function handleAddFormSubmit(evt) {
+  evt.preventDefault();
+  const cardNameInput = popupAddCard.querySelector('.popup__input_type_card-name');
+  const cardLinkInput = popupAddCard.querySelector('.popup__input_type_card-link');
+  const newCard = {
+    name: cardNameInput.value,
+    link: cardLinkInput.value
+  };
+  addCard(newCard);
+  popupAddCard.classList.toggle('popup_opened');
+  cardNameInput.value = '';
+  cardLinkInput.value = '';
 }
 
 function render() {
@@ -60,19 +90,23 @@ function addCard(card) {
   cardElement.querySelector('.element__name').innerText = card.name;
   cardElement.querySelector('.element__image').alt = card.name;
   cardElement.querySelector('.element__image').src = card.link;
-  cards.appendChild(cardElement);
+  cardElement.querySelector('.element__delete-button').addEventListener('click', handleDelete);
+  cardElement.querySelector('.element__like-button').addEventListener('click', cardLike);
+  cards.prepend(cardElement);
 }
 
 render();
 
-popup.addEventListener('click', (event) => {
-  if (event.target === event.currentTarget) {
+popupProfileEdit.addEventListener('click', (evt) => {
+  if (evt.target === evt.currentTarget) {
     closeEditForm();
   }
 });
 
-editButton.addEventListener('click',openEditForm)
-closeButton.addEventListener('click',closeEditForm)
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-form.addEventListener('submit', handleFormSubmit);
+editButton.addEventListener('click', openEditForm);
+closeButton.addEventListener('click', closeEditForm);
+
+editProfileForm.addEventListener('submit', handleEditFormSubmit);
+
+addButton.addEventListener('click', toggleForm);
+addCardForm.addEventListener('submit', handleAddFormSubmit);
