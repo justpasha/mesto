@@ -110,7 +110,7 @@ function addCard(card) {
 }
 
 function handleOpenImage(evt) {
-  popupFullImage.classList.add('popup-image_opened');
+  popupFullImage.classList.add('popup_opened', 'popup-image_opened');
   const image = evt.target.closest('.element__image');
   const src = image.getAttribute('src');
   const name = image.getAttribute('alt');
@@ -118,8 +118,12 @@ function handleOpenImage(evt) {
   popupFullImage.querySelector('.popup-image__image').alt = name;
   popupFullImage.querySelector('.popup-image__name').textContent = name;
   popupFullImage.querySelector('.popup__close-button').addEventListener('click', () => {
-    popupFullImage.classList.remove('popup-image_opened');
+  removeClass();
   });
+}
+
+function removeClass() {
+  popupFullImage.classList.remove('popup_opened', 'popup-image_opened');
 }
 
 popupProfileEdit.addEventListener('click', (evt) => {
@@ -130,6 +134,11 @@ popupProfileEdit.addEventListener('click', (evt) => {
 popupAddCard.addEventListener('click', (evt) => {
   if (evt.target === evt.currentTarget) {
     handleCloseAddForm();
+  }
+});
+popupFullImage.addEventListener('click', (evt) => {
+  if (evt.target === evt.currentTarget) {
+    removeClass();
   }
 });
 
