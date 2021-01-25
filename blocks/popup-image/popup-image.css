@@ -1,9 +1,9 @@
-.popup-image_opened {
+.popup-image {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
 @media screen and (max-width: 720px) {
-  .popup-image_opened {
+  .popup-image {
     padding: 0;
   }
 }
