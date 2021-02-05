@@ -95,34 +95,27 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+//присваивается закрытие по esc
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keyup', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
 }
 
-// function handleClose(popup) {
-//   const popupList = Array.from(document.querySelectorAll('.popup'));
-//   popupList.forEach((item) => {
-//     item.addEventListener('click', (evt) => {
-
-//     })
-//   })
-// }
-
-popupProfileEdit.addEventListener('click', (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupProfileEdit);
-  }
-});
-popupAddCard.addEventListener('click', (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupAddCard);
-  }
-});
-popupFullImage.addEventListener('click', (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupFullImage);
-  }
-});
+//закрытие по оверлэю
+function handleOverlayClose() {
+  const popupList = Array.from(document.querySelectorAll('.popup'));
+  popupList.forEach((item) => {
+    item.addEventListener('click', (evt) => {
+      if (evt.target === evt.currentTarget) {
+        closePopup(item);
+      };
+    });
+  });
+}
 
 closeImageButton.addEventListener('click', () => closePopup(popupFullImage));
 closeCardFormButton.addEventListener('click', () => closePopup(popupAddCard));
@@ -143,3 +136,5 @@ addButton.addEventListener('click', () => {
   openPopup(popupAddCard);
 });
 addCardForm.addEventListener('submit', handleAddFormSubmit);
+
+handleOverlayClose();
