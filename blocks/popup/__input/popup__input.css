@@ -9,9 +9,9 @@
   font-size: 14px;
   line-height: 17px;
   color: black;
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
-.popup__input:last-of-type {
+.popup__input:first-of-type {
   margin-bottom: 0;
 }

@@ -33,6 +33,10 @@ function handleEditFormSubmit (evt) {
   closePopup(popupProfileEdit);
 }
 
+function handleOpenAddForm() {
+  addCardForm.reset();
+}
+
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
   addCard({
@@ -95,6 +99,15 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
+// function handleClose(popup) {
+//   const popupList = Array.from(document.querySelectorAll('.popup'));
+//   popupList.forEach((item) => {
+//     item.addEventListener('click', (evt) => {
+
+//     })
+//   })
+// }
+
 popupProfileEdit.addEventListener('click', (evt) => {
   if (evt.target === evt.currentTarget) {
     closePopup(popupProfileEdit);
@@ -116,10 +129,17 @@ closeCardFormButton.addEventListener('click', () => closePopup(popupAddCard));
 closeEditFormButton.addEventListener('click', () => closePopup(popupProfileEdit));
 
 editButton.addEventListener('click', () => {
+  clearInputError(editProfileForm);
+  disabledButton(editProfileForm);
   openPopup(popupProfileEdit);
   handleOpenEditForm();
 });
 editProfileForm.addEventListener('submit', handleEditFormSubmit);
 
-addButton.addEventListener('click', () => openPopup(popupAddCard));
+addButton.addEventListener('click', () => {
+  clearInputError(addCardForm);
+  disabledButton(addCardForm);
+  handleOpenAddForm();
+  openPopup(popupAddCard);
+});
 addCardForm.addEventListener('submit', handleAddFormSubmit);

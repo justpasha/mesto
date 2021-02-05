@@ -29,9 +29,10 @@
 @import "../blocks/popup/__container/popup__container.css";
 @import "../blocks/popup/__heading/popup__heading.css";
 @import "../blocks/popup/__input/popup__input.css";
-@import "../blocks/popup/__input/_type/popup__input_type_name.css";
-@import "../blocks/popup/__input/_type/popup__input_type_about.css";
+@import "../blocks/popup/__input/_type/popup__input_type_error.css";
+@import "../blocks/popup/__input-error/popup__input-error.css";
 @import "../blocks/popup/__save-button/popup__save-button.css";
+@import "../blocks/popup/__save-button/_disabled/popup__save-button_disabled.css";
 @import "../blocks/popup/__close-button/popup__close-button.css";
 @import "../blocks/popup/__close-icon/popup__close-icon.css";
 @import "../blocks/popup-image/popup-image.css";
