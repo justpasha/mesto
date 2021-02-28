@@ -1,35 +1,11 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link:
-      'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-  },
-  {
-    name: 'Челябинская область',
-    link:
-      'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-  },
-  {
-    name: 'Иваново',
-    link:
-      'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-  },
-  {
-    name: 'Камчатка',
-    link:
-      'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-  },
-  {
-    name: 'Холмогорский район',
-    link:
-      'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-  },
-  {
-    name: 'Байкал',
-    link:
-      'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-  },
-];
+//для валидации
+const selectors = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error',
+};
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
@@ -50,9 +26,17 @@ const editProfileForm = popupProfileEdit.querySelector(
 );
 const addCardForm = popupAddCard.querySelector('.add-card-form__container');
 const cardList = document.querySelector('.elements');
-const cardSelector = document.querySelector('.card-template');
+
+const validEditForm = new FormValidator(
+  selectors,
+  '.edit-profile-form__container'
+);
+const validAddForm = new FormValidator(selectors, '.add-card-form__container');
 
 import { Card } from './Card.js';
+import { initialCards } from './initial-cards.js';
+import { FormValidator } from './FormValidator.js';
+export { openPopup };
 
 function handleOpenEditForm() {
   nameInput.value = profileName.textContent;
@@ -131,19 +115,48 @@ function handleClosePopup() {
   });
 }
 
+//удаление ошибок полей формы при закрытии без сохранения
+function clearInputError(formElement) {
+  const inputList = Array.from(
+    formElement.querySelectorAll(selectors.inputSelector)
+  );
+  const spanList = Array.from(
+    formElement.querySelectorAll(`.${selectors.errorClass}`)
+  );
+  inputList.forEach((inputElement) => {
+    inputElement.classList.remove(selectors.inputErrorClass);
+  });
+  spanList.forEach((errorElement) => {
+    errorElement.classList.remove(selectors.errorClass);
+    errorElement.textContent = '';
+  });
+}
+
+//блокировка кнопки при повторном открытии формы
+function disabledButton(formElement) {
+  const buttonElement = formElement.querySelector(
+    selectors.submitButtonSelector
+  );
+  buttonElement.classList.add(selectors.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+}
+
 editButton.addEventListener('click', () => {
-  // clearInputError(editProfileForm);
-  // disabledButton(editProfileForm);
+  clearInputError(editProfileForm);
+  disabledButton(editProfileForm);
   handleOpenEditForm();
 });
 editProfileForm.addEventListener('submit', handleEditFormSubmit);
 
 addButton.addEventListener('click', () => {
-  // clearInputError(addCardForm);
-  // disabledButton(addCardForm);
+  clearInputError(addCardForm);
+  disabledButton(addCardForm);
   handleOpenAddForm();
 });
 addCardForm.addEventListener('submit', handleAddFormSubmit);
+
+validEditForm.enableValidation();
+validAddForm.enableValidation();
 
 renderElements();
 handleClosePopup();

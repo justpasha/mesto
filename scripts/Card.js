@@ -3,6 +3,7 @@ const popupImage = document.querySelector('.popup-image__image');
 const popupImageTitle = document.querySelector('.popup-image__name');
 
 export { Card };
+import { openPopup } from './index.js';
 
 class Card {
   _name;
@@ -29,11 +30,7 @@ class Card {
     popupImage.src = this._image;
     popupImage.alt = this._name;
     popupImageTitle.textContent = this._name;
-    popupElement.classList.add('popup_opened');
-  }
-
-  _handleClosePopupImage() {
-    popupElement.classList.remove('popup_opened');
+    openPopup(popupElement);
   }
 
   _handleDelete() {
