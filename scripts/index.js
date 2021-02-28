@@ -1,3 +1,11 @@
+import { Card } from './Card.js';
+import { initialCards } from './initial-cards.js';
+import { FormValidator } from './FormValidator.js';
+
+const popupFullImage = document.querySelector('.popup-image');
+const popupImageLink = document.querySelector('.popup-image__image');
+const popupImageTitle = document.querySelector('.popup-image__name');
+
 //для валидации
 const selectors = {
   inputSelector: '.popup__input',
@@ -33,11 +41,6 @@ const validEditForm = new FormValidator(
 );
 const validAddForm = new FormValidator(selectors, '.add-card-form__container');
 
-import { Card } from './Card.js';
-import { initialCards } from './initial-cards.js';
-import { FormValidator } from './FormValidator.js';
-export { openPopup };
-
 function handleOpenEditForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
@@ -58,7 +61,7 @@ function handleOpenAddForm() {
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
-  addCArd(
+  addCard(
     {
       name: cardNameInput.value,
       link: cardLinkInput.value,
@@ -72,12 +75,12 @@ function handleAddFormSubmit(evt) {
 //загрузка изначальных карточек
 function renderElements() {
   initialCards.forEach((item) => {
-    addCArd(item, '.card-template');
+    addCard(item, '.card-template');
   });
 }
 
-function addCArd(cardItem, cardSelector) {
-  const card = new Card(cardItem, cardSelector);
+function addCard(cardItem, cardSelector) {
+  const card = new Card(cardItem, cardSelector, handleOpenPopupImage);
   const cardElement = card.generateCard();
   cardList.prepend(cardElement);
 }
@@ -90,6 +93,13 @@ function closePopup(popup) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keyup', closeByEscape);
+}
+
+function handleOpenPopupImage() {
+  popupImageLink.src = this._image;
+  popupImageLink.alt = this._name;
+  popupImageTitle.textContent = this._name;
+  openPopup(popupFullImage);
 }
 
 //закрытие по esc

@@ -1,20 +1,14 @@
-const popupElement = document.querySelector('.popup-image');
-const popupImage = document.querySelector('.popup-image__image');
-const popupImageTitle = document.querySelector('.popup-image__name');
-
-export { Card };
-import { openPopup } from './index.js';
-
-class Card {
+export class Card {
   _name;
   _image;
   _cardSelector;
   _element;
 
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleOpenPopupImage) {
     this._name = data.name;
     this._image = data.link;
     this._cardSelector = cardSelector;
+    this._handleOpenPopupImage = handleOpenPopupImage;
   }
 
   _getTemplate() {
@@ -24,13 +18,6 @@ class Card {
       .cloneNode(true);
 
     return cardElement;
-  }
-
-  _handleOpenPopupImage() {
-    popupImage.src = this._image;
-    popupImage.alt = this._name;
-    popupImageTitle.textContent = this._name;
-    openPopup(popupElement);
   }
 
   _handleDelete() {

@@ -70,17 +70,3 @@ export class FormValidator {
     this._setEventListener();
   }
 }
-
-const selectors = {
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save-button',
-  inactiveButtonClass: 'popup__save-button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error',
-};
-
-const validAddForm = new FormValidator(
-  selectors,
-  '.edit-profile-form__container'
-);
-validAddForm.enableValidation();
