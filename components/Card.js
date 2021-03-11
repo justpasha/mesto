@@ -4,11 +4,11 @@ export class Card {
   _cardSelector;
   _element;
 
-  constructor(data, cardSelector, handleOpenPopupImage) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._image = data.link;
     this._cardSelector = cardSelector;
-    this._handleOpenPopupImage = handleOpenPopupImage;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -33,7 +33,7 @@ export class Card {
   _setEventListeners() {
     this._element
       .querySelector('.element__image')
-      .addEventListener('click', () => this._handleOpenPopupImage());
+      .addEventListener('click', () => this._handleCardClick());
     this._element
       .querySelector('.element__delete-button')
       .addEventListener('click', () => this._handleDelete());

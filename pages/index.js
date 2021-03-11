@@ -1,6 +1,6 @@
-import { Card } from './Card.js';
-import { initialCards } from './initial-cards.js';
-import { FormValidator } from './FormValidator.js';
+import { Card } from '../components/Card.js';
+import { initialCards } from '../utils/constants.js';
+import { FormValidator } from '../components/FormValidator.js';
 
 const popupFullImage = document.querySelector('.popup-image');
 const popupImageLink = document.querySelector('.popup-image__image');
@@ -151,6 +151,7 @@ function disabledButton(formElement) {
   buttonElement.setAttribute('disabled', true);
 }
 
+//редактировать профиль
 editButton.addEventListener('click', () => {
   clearInputError(editProfileForm);
   disabledButton(editProfileForm);
