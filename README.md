@@ -9,7 +9,7 @@
 **Использованные технологии**
 
 - grid
-- Flex
+- flex
 - javascript
 - webpack
 
