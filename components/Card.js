@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
   _name;
   _image;
   _cardSelector;

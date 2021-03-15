@@ -6,15 +6,15 @@ export default class UserInfo {
 
   getUserInfo() {
     this._userInfo = {
-      name: this._nameSelector,
-      description: this._descriptionSelector,
+      name: this._nameSelector.textContent,
+      description: this._descriptionSelector.textContent,
     };
 
     return this._userInfo;
   }
 
-  setUserInfo({ name, description }) {
-    this._nameSelector.textContent = name;
-    this._descriptionSelector.textContent = description;
+  setUserInfo(item) {
+    this._nameSelector.textContent = item.name;
+    this._descriptionSelector.textContent = item.description;
   }
 }

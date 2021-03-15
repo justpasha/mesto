@@ -33,3 +33,26 @@ export const initialCards = [
 
 export const popupImageTitle = document.querySelector('.popup-image__name');
 export const popupImageLink = document.querySelector('.popup-image__image');
+
+export const editProfileForm = document.querySelector(
+  '.edit-profile-form__container'
+);
+export const addCardForm = document.querySelector('.add-card-form__container');
+
+export const editButton = document.querySelector('.profile__edit-button');
+export const addButton = document.querySelector('.profile__add-button');
+export const nameInput = editProfileForm.querySelector(
+  '.popup__input_type_name'
+);
+export const jobInput = editProfileForm.querySelector(
+  '.popup__input_type_about'
+);
+
+//для валидации
+export const selectors = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error',
+};

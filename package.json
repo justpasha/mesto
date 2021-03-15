@@ -1,0 +1,25 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Проектная работа представляет собой страницу для добавления и оценивания фотографий. Доступно редактирование профиля и добавление фотографий, с проверкой на корректность данных, удаление и оценка фотографий. Данная пректная работа создается с помощью ООП.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justpasha/mesto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justpasha/mesto/issues"
+  },
+  "homepage": "https://github.com/justpasha/mesto#readme",
+  "devDependencies": {
+    "webpack": "^5.25.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
