@@ -28,7 +28,9 @@ export default class Card {
   _setEventListeners() {
     this._element
       .querySelector('.element__image')
-      .addEventListener('click', () => this._handleCardClick());
+      .addEventListener('click', () =>
+        this._handleCardClick(this._image, this._name)
+      );
     this._element
       .querySelector('.element__delete-button')
       .addEventListener('click', () => this._handleDelete());
@@ -41,8 +43,10 @@ export default class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector('.element__image').src = this._image;
-    this._element.querySelector('.element__image').alt = this._name;
+    const imageElement = this._element.querySelector('.element__image');
+
+    imageElement.src = this._image;
+    imageElement.alt = this._name;
     this._element.querySelector('.element__name').textContent = this._name;
 
     return this._element;

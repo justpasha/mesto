@@ -31,9 +31,6 @@ export const initialCards = [
   },
 ];
 
-export const popupImageTitle = document.querySelector('.popup-image__name');
-export const popupImageLink = document.querySelector('.popup-image__image');
-
 export const editProfileForm = document.querySelector(
   '.edit-profile-form__container'
 );
