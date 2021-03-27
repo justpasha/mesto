@@ -16,7 +16,6 @@ import {
   changeAvatarButton,
   nameInput,
   jobInput,
-  profileAvatar,
 } from '../utils/constants.js';
 
 const api = new Api({
@@ -47,20 +46,10 @@ const cardList = new Section(
   '.elements'
 );
 
-//загрузка исходных карточек
-api
-  .getInitialCards()
-  .then((data) => {
-    cardList.renderItems(data);
-  })
-  .catch((err) => console.log(err));
-
-//загрузка данных профиля
-api
-  .getUserInfo()
-  .then((data) => {
-    userInfo.setUserInfo(data);
-    profileAvatar.src = data.avatar;
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then((res) => {
+    userInfo.setUserInfo(res[0]);
+    cardList.renderItems(res[1]);
   })
   .catch((err) => console.log(err));
 
@@ -80,9 +69,10 @@ const popupEditForm = new PopupWithForm(
       changeLoading('.edit-profile-form', true, '');
       api
         .editProfileInfo(formData)
+        .then((res) => res.json())
+        .then((data) => userInfo.setUserInfo(data))
         .catch((err) => console.log(err))
         .finally(changeLoading('.edit-profile-form', false, 'Сохранить'));
-      userInfo.setUserInfo(formData);
     },
   },
   '.edit-profile-form__container'
@@ -161,10 +151,12 @@ function handleCardDelete(cardId, element) {
 }
 
 //постановка лайка
-function setCardLike(cardId, likeActiveSelector, likeButton) {
+function setCardLike(cardId, likeActiveSelector, likeButton, likeCount) {
   likeLoading(likeButton, true);
   api
     .setLike(cardId)
+    .then((res) => res.json())
+    .then((res) => (likeCount.textContent = res.likes.length))
     .then(() => {
       likeButton.classList.add(likeActiveSelector);
     })
@@ -173,10 +165,12 @@ function setCardLike(cardId, likeActiveSelector, likeButton) {
 }
 
 //снятие лайка
-function deleteLike(cardId, likeActiveSelector, likeButton) {
+function deleteLike(cardId, likeActiveSelector, likeButton, likeCount) {
   likeLoading(likeButton, true);
   api
     .deleteLike(cardId)
+    .then((res) => res.json())
+    .then((res) => (likeCount.textContent = res.likes.length))
     .then(() => {
       likeButton.classList.remove(likeActiveSelector);
     })

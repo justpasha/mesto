@@ -6,17 +6,19 @@ export default class Api {
     this._cards = 'cards';
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+
+    return Promise.reject(console.log(`Произошла ошибка ${res.status}`));
+  }
+
   getInitialCards() {
     return fetch(`${this.baseUrl}/${this._cards}`, {
       headers: this.headers,
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(console.log(`Произошла ошибка ${res.status}`));
-      })
+      .then(this._checkResponse)
       .catch((err) => console.log(err));
   }
 
@@ -24,13 +26,7 @@ export default class Api {
     return fetch(`${this.baseUrl}/${this._user}`, {
       headers: this.headers,
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(console.log(`Произошла ошибка ${res.status}`));
-      })
+      .then(this._checkResponse)
       .catch((err) => console.log(err));
   }
 

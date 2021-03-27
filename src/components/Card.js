@@ -37,16 +37,16 @@ export default class Card {
       this._deleteLike(
         this._cardId,
         this._likeActiveSelector,
-        this._likeButton
+        this._likeButton,
+        this._likeCount
       );
-      this._likeCount.textContent = this._likes.length -= 1;
     } else {
       this._setCardLike(
         this._cardId,
         this._likeActiveSelector,
-        this._likeButton
+        this._likeButton,
+        this._likeCount
       );
-      this._likeCount.textContent = this._likes.length += 1;
     }
   }
 

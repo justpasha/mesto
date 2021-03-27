@@ -3,8 +3,6 @@ export const editProfileForm = document.querySelector(
 );
 export const addCardForm = document.querySelector('.add-card-form__container');
 
-export const profileAvatar = document.querySelector('.profile__avatar');
-
 export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
 export const changeAvatarButton = document.querySelector(
