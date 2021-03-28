@@ -38,7 +38,9 @@ export default class Api {
         name: data.name,
         about: data.about,
       }),
-    }).catch((err) => console.log(err));
+    })
+      .then(this._checkResponse)
+      .catch((err) => console.log(err));
   }
 
   createCard(data) {
@@ -49,7 +51,9 @@ export default class Api {
         name: data.name,
         link: data.link,
       }),
-    }).catch((err) => console.log(err));
+    })
+      .then(this._checkResponse)
+      .catch((err) => console.log(err));
   }
 
   deleteCard(cardId) {
@@ -63,14 +67,18 @@ export default class Api {
     return fetch(`${this.baseUrl}/${this._cards}/likes/${cardId}`, {
       method: 'PUT',
       headers: this.headers,
-    }).catch((err) => console.log(err));
+    })
+      .then(this._checkResponse)
+      .catch((err) => console.log(err));
   }
 
   deleteLike(cardId) {
     return fetch(`${this.baseUrl}/${this._cards}/likes/${cardId}`, {
       method: 'DELETE',
       headers: this.headers,
-    }).catch((err) => console.log(err));
+    })
+      .then(this._checkResponse)
+      .catch((err) => console.log(err));
   }
 
   changeAvatar(data) {
@@ -80,6 +88,8 @@ export default class Api {
       body: JSON.stringify({
         avatar: data.avatar,
       }),
-    }).catch((err) => console.log(err));
+    })
+      .then(this._checkResponse)
+      .catch((err) => console.log(err));
   }
 }

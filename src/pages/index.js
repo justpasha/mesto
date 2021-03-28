@@ -69,7 +69,6 @@ const popupEditForm = new PopupWithForm(
       changeLoading('.edit-profile-form', true, '');
       api
         .editProfileInfo(formData)
-        .then((res) => res.json())
         .then((data) => userInfo.setUserInfo(data))
         .catch((err) => console.log(err))
         .finally(changeLoading('.edit-profile-form', false, 'Сохранить'));
@@ -86,7 +85,6 @@ const popupAddForm = new PopupWithForm(
       changeLoading('.add-card-form', true, '');
       api
         .createCard(formData)
-        .then((res) => res.json())
         .then((newCardData) => {
           cardList.addItem(createLocalCard(newCardData));
         })
@@ -105,7 +103,6 @@ const popupChangeAvatar = new PopupWithForm(
       changeLoading('.change-avatar-form', true, '');
       api
         .changeAvatar(formData)
-        .then((res) => res.json())
         .then((data) => {
           userInfo.setAvatar(data);
         })
@@ -155,7 +152,6 @@ function setCardLike(cardId, likeActiveSelector, likeButton, likeCount) {
   likeLoading(likeButton, true);
   api
     .setLike(cardId)
-    .then((res) => res.json())
     .then((res) => (likeCount.textContent = res.likes.length))
     .then(() => {
       likeButton.classList.add(likeActiveSelector);
@@ -169,7 +165,6 @@ function deleteLike(cardId, likeActiveSelector, likeButton, likeCount) {
   likeLoading(likeButton, true);
   api
     .deleteLike(cardId)
-    .then((res) => res.json())
     .then((res) => (likeCount.textContent = res.likes.length))
     .then(() => {
       likeButton.classList.remove(likeActiveSelector);
