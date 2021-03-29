@@ -13,4 +13,4 @@
 - javascript
 - webpack
 
-[Посмотреть страницу](https://justpasha.github.io/mesto/index.html)
+[Посмотреть страницу](https://justpasha.github.io/mesto/)
